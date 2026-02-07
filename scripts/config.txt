@@ -1,0 +1,3 @@
+getting_started.md = Getting Started
+faq.md = FAQ
+usage.md = How to Use ReceiptHubAI

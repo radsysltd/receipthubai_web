@@ -1,0 +1,230 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.bg-primary {
+  background-color: #0078D4 !important; /* Microsoft blue style */
+}
+
+section {
+  padding: 60px 0;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.btn-primary {
+  background-color: #0078D4;
+  border-color: #0078D4;
+}
+
+.btn-primary:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
+
+.display-1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #0078D4;
+}
+
+.card-header.bg-primary {
+  background-color: #0078D4 !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 3rem;
+  }
+  
+  section {
+    padding: 40px 0;
+  }
+}
+
+/* Screenshot Gallery Styles */
+.screenshot-img {
+  max-height: 600px;
+  object-fit: contain;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.screenshot-img:hover {
+  transform: scale(1.02);
+}
+
+.carousel-inner {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.carousel-caption {
+  max-width: 80%;
+  margin: 0 auto;
+  bottom: 20px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Thumbnail Grid */
+.screenshot-thumbnail {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshot-thumbnail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+}
+
+.screenshot-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.screenshot-thumbnail:hover img {
+  transform: scale(1.1);
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+  padding: 12px 8px 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+.screenshot-thumbnail:hover .thumbnail-overlay {
+  opacity: 1;
+}
+
+.thumbnail-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.thumbnail-desc {
+  font-size: 0.7rem;
+  font-weight: 400;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Lightbox Modal */
+#lightboxModal .modal-content {
+  background: #000;
+}
+
+#lightboxModal .modal-body {
+  text-align: center;
+  padding: 0;
+}
+
+#lightboxModal img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+#lightboxModal .modal-header {
+  border-bottom: 1px solid #333;
+}
+
+/* How It Works Section Images */
+.how-it-works-img {
+  max-height: 250px;
+  height: 250px;
+  width: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #dee2e6;
+  background: #f8f9fa;
+}
+
+.how-it-works-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+  border-color: #0078D4;
+}
+
+/* Ensure consistent spacing in How It Works section */
+#how-it-works .col-lg-4 {
+  display: flex;
+}
+
+#how-it-works .col-lg-4 > div {
+  width: 100%;
+}
+
+/* Responsive adjustments for screenshots */
+@media (max-width: 768px) {
+  .screenshot-img {
+    max-height: 400px;
+  }
+  
+  .carousel-caption {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  
+  .carousel-caption h5 {
+    font-size: 1rem;
+  }
+  
+  .thumbnail-label {
+    font-size: 0.75rem;
+  }
+  
+  .how-it-works-img {
+    max-height: 200px;
+  }
+}
