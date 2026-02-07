@@ -9,6 +9,7 @@ body {
 
 section {
   padding: 60px 0;
+  scroll-margin-top: 80px; /* Offset for sticky navbar */
 }
 
 .card {
@@ -39,6 +40,10 @@ section {
   color: #0078D4;
 }
 
+.hero-title {
+  font-size: 3.2rem !important;
+}
+
 .card-header.bg-primary {
   background-color: #0078D4 !important;
 }
@@ -60,6 +65,10 @@ html {
 @media (max-width: 768px) {
   .display-1 {
     font-size: 3rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem !important;
   }
   
   section {
@@ -227,4 +236,19 @@ html {
   .how-it-works-img {
     max-height: 200px;
   }
+}
+
+/* Center alert banners */
+.alert-center-wrapper {
+  text-align: center !important;
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.alert-center-wrapper .alert {
+  display: inline-block !important;
+  margin: 0 !important;
+  text-align: center !important;
 }
