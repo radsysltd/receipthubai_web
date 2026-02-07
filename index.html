@@ -623,12 +623,13 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div id="form-message" class="alert d-none" role="alert"></div>
-        <form id="contact-form" action="https://formsubmit.co/intuidat@gmail.com" method="POST" class="needs-validation" novalidate>
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="New ReceiptHubAI Waiting List Signup">
-          <input type="hidden" name="_next" value="#contact">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="box">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="needs-validation" novalidate>
+          <!-- Web3Forms configuration -->
+          <input type="hidden" name="access_key" value="e14a117c-e0bd-4223-ad03-0fa925c6abd5">
+          <input type="hidden" name="subject" value="New ReceiptHubAI Waiting List Signup">
+          <input type="hidden" name="from_name" value="ReceiptHubAI Website">
+          <input type="hidden" name="to" value="intuidat@gmail.com">
+          <input type="hidden" name="redirect" value="https://receipthubai.com/#contact">
           
           <div class="mb-3">
             <label for="name" class="form-label">Your Name (Optional)</label>
@@ -732,7 +733,10 @@
     // Get form data
     const formData = new FormData(form);
     
-    // Submit to FormSubmit
+    // Submit to Web3Forms
+    console.log('Submitting form to:', form.action);
+    console.log('Form data:', Object.fromEntries(formData));
+    
     fetch(form.action, {
       method: 'POST',
       body: formData,
@@ -741,22 +745,27 @@
       }
     })
     .then(function(response) {
-      if (response.ok) {
-        // Success
-        showMessage('Thank you! You\'ve successfully joined the waiting list. We\'ll notify you as soon as ReceiptHubAI launches!', 'success');
-        form.reset();
-        form.classList.remove('was-validated');
-      } else {
-        // Error from FormSubmit
-        return response.json().then(function(data) {
-          throw new Error(data.error || 'An error occurred while sending your message.');
-        });
-      }
+      console.log('Response status:', response.status);
+      
+      return response.json().then(function(data) {
+        console.log('Response data:', data);
+        
+        if (response.ok && data.success) {
+          // Success
+          showMessage('Thank you! You\'ve successfully joined the waiting list. We\'ll notify you as soon as ReceiptHubAI launches!', 'success');
+          form.reset();
+          form.classList.remove('was-validated');
+          console.log('Form submitted successfully');
+        } else {
+          // Error from Web3Forms
+          throw new Error(data.message || 'An error occurred while sending your message.');
+        }
+      });
     })
       .catch(function(error) {
-      // Network error or FormSubmit error
-      showMessage('Sorry, there was an error joining the waiting list. Please try again.', 'danger');
+      // Network error or Web3Forms error
       console.error('Form submission error:', error);
+      showMessage('Sorry, there was an error joining the waiting list. Please try again. Check the browser console for details.', 'danger');
     })
     .finally(function() {
       // Reset button state
